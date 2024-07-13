@@ -114,7 +114,7 @@
             
               <div>
           	
-          	  <h2 class="tm-block-title">오늘 회원 수치CICDTEST</h2>
+          	  <h2 class="tm-block-title">오늘 회원 수치</h2>
          	   <div>
          	   
          	   <div style="margin-top: 10px;">
