@@ -109,12 +109,14 @@
                 <div class="col-12">
             
             <div class="row tm-content-row tm-mt-big" style="margin-left: 0vw; float:left; fixed;height: 70%; position: fixed; width: 25%">
-                
+                <div class="bg-white tm-block col-12" >
+                    안녕하세요? CICD TEST입니다.감사합니다.
+                </div>
             <div class="bg-white tm-block col-12" >
             
               <div>
           	
-          	  <h2 class="tm-block-title">오늘 회원 수치CICDTEST</h2>
+          	  <h2 class="tm-block-title">오늘 회원 수치</h2>
          	   <div>
          	   
          	   <div style="margin-top: 10px;">
