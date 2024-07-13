@@ -109,7 +109,9 @@
                 <div class="col-12">
             
             <div class="row tm-content-row tm-mt-big" style="margin-left: 0vw; float:left; fixed;height: 70%; position: fixed; width: 25%">
-            
+                <div class="bg-white tm-block col-12" >
+                    <h2>안녕하세요. CICD 테스트입니다.</h2>
+                    </div>
             <div class="bg-white tm-block col-12" >
             
               <div >
