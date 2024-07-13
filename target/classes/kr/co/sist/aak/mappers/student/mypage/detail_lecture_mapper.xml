@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.student.mypage.detail_lecture">
+	<select id="selectDeailLecture" parameterType="map" resultType="DetailLectureVO">
+		SELECT DISTINCT l.TITLE , l.LEC_CODE as lecCode  
+		FROM LECTURE l
+		JOIN SUBJECT s ON s.SUB_CODE = l.SUB_CODE 
+		left JOIN LEC_STATUS ls ON l.SUB_CODE = ls.SUB_CODE
+	    WHERE s.SUB_CODE = #{subCode}
+		ORDER BY l.LEC_CODE desc
+	</select>
+	
+    <select id="selectLecturePlay" parameterType="map" resultType="String">
+    	SELECT l.F_NAME
+		FROM LECTURE l 
+		WHERE l.SUB_CODE = #{subCode} AND l.LEC_CODE = #{lecCode}
+    </select>
+	
+	<select id="selectDeailLectureInfo" parameterType="String" resultType="DetailLectureVO">
+	  SELECT s.INTRO , s.GOAL , s.IMAGE , ii.NAME , ii.INTRODUCTION , ii.IMAGE, sc.SUB_TITLE as subTitle
+	  FROM SUBJECT s
+	  JOIN SUB_INSTRUCTOR si ON s.SUB_CODE = si.SUB_CODE
+	  JOIN SUBJECT_CODE sc ON sc.SUB_CODE = s.SUB_CODE 
+	  JOIN INST_INFO ii ON si.INST_ID = ii.INST_ID 
+	  WHERE s.SUB_CODE = #{subCode}
+	</select>
+</mapper>

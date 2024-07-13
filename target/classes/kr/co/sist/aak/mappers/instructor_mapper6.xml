@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.instructor">
+<!-- 카테고리 불러오기 -->
+<select id="selectCategory" resultType="lectureDomain">
+select cat_name,cat_code
+from CAT_CODE
+where PRIME_CAT_CODE='N/A'
+</select>
+<!-- 과목코오드 조회 -->
+<select id="subtitle" resultType="lectureDomain" parameterType="String">
+select sb.sub_title,sb.sub_code ,sb.CAT_CODE
+from subject_code sb, CAT_CODE cc
+where (sb.cat_code=cc.cat_code) and cc.prime_CAT_CODE=#{ subcode } 
+</select>
+
+<!-- 강의 개설신청 -->
+<insert id="insertLecture" parameterType="lectureVO">
+insert into subject (sub_code, sub_title, intro, goal, total_no, total_time, create_date, status, image, comp_time, inst_id
+values(#{sub_code},#{sub_title},#{intro},#{goal},#{total_no},#{total_time},#{create_date},#{status},#{image},#{comp_time})
+where inst_id=#{inst_id}
+</insert>
+
+<insert id="lectureLesson" parameterType="lectureLessonVO">
+insert into lecture (sub_code, lec_code, title, time, status, f_name, lec_explain)
+values (#{sub_code},#{lec_code},#{title},#{time},#{status},#{f_name},#{lec_explain})
+</insert>
+	
+</mapper>
